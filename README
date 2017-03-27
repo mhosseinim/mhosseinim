@@ -1,0 +1,39 @@
+%%%README
+scripts:
+========
+1-script01_load_XLSX_File
+    %1- load data from file 'train_bodies.xlsx' 
+    %2- create docterm and dictionary
+    %3- calculate tfidf of docterm
+2- script02_save_Docterm_dictionary_tfidf
+  % requirement: need script[1] or all matrices of docterm dic tfidf
+
+3- script03_svd
+   % requirement  = docterm OR tfidf docterm and dictionary and index
+   % save results in svd_news.mat and svd_news_tfidf.mat  
+4- script04_nmf
+   % requirement  = docterm OR tfidf docterm and dictionary and index
+   % save results in nmf_news.mat and nmf_news_tfidf.mat  
+
+
+CREATING DOCTERM (no bug)
+=================================
+function location: createDocterm.m
+script test: test_createDoctermFunction
+note: 2 args newsBody and debug_message[true/false] {optional}
+example : [docterm,dictionary] = createDocterm(body);
+
+TFIDF (no bug)
+========
+function location = LSA.m
+script test = testFolder/test_tfidf.m
+example :
+
+doctermX = [1,1,2,1,0,0,0;1,1,0,0,2,3,0];
+doctermX = doctermX';
+disp(doctermX);
+2 ways : 
+       I)  tfidf = LSA.tfidf(docterm)% default - both tf and idf are log10 based
+       II) tfidf = LSA.tfidf_rationTF(docterm) - tf is ratio based and idf is log10based
+
+
